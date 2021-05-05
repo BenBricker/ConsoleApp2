@@ -4,23 +4,28 @@ using System.Text;
 
 namespace ConsoleAppProject.App01
 {
+    //Enum contains differents classifications.
     public enum Classification 
     {
         FIRST_CLASS, UPPER_SECOND_CLASS, LOWER_SECOND_CLASS, THIRD_CLASS, FAILED
     }
-    class StudentMarks
-    {
-        private List<Student> students = new List<Student>();
-        private int nextStudentID = 1;
-        private int meanMark;
-        private int minMark;
-        private int maxMark;
-        private int percentageFailed;
-        private int percentageThirdClass;
-        private int percentageLowerSecondClass;
-        private int percentageUpperSecondClass;
-        private int percentageFirstClass;
 
+    //Class maintains data for a list of students and their marks.
+    //Class calculates statistics based on student marks.
+    public class StudentMarks
+    {
+        private List<Student> Students = new List<Student>();
+    private int nextStudentID = 1;
+        public int MeanMark { get; set; }
+        public int MinMark { get; set; }
+        public int MaxMark { get; set; }
+        public int PercentageFailed { get; set; }
+        public int PercentageThirdClass { get; set; }
+        public int PercentageLowerSecondClass { get; set; }
+        public int PercentageUpperSecondClass { get; set; }
+        public int PercentageFirstClass { get; set; }
+
+        //Method method calls methods to run student marks.
         public void run()
         {
 
@@ -32,19 +37,21 @@ namespace ConsoleAppProject.App01
             calculateStats();
             calculateGradeProfile();
             ConsoleHelper.OutputText("Here is a list of the student marks");
-            foreach (Student aStudent in students)
+            foreach (Student aStudent in Students)
             {
                 aStudent.display();
             }
 
-            ConsoleHelper.OutputText("\n Mean mark: " + meanMark + ", Lowest mark: " + minMark + ", Highest mark: " + maxMark);
-            ConsoleHelper.OutputText("\n Grade Profile based on " + students.Count + " students. \n First Class Percentage: " + percentageFirstClass +
-                                     "\n Upper Class Percentage: " + percentageUpperSecondClass +
-                                     "\n Lower Class Percentage: " + percentageLowerSecondClass +
-                                     "\n Third Class Percentage: " + percentageThirdClass +
-                                     "\n Failed Percentage: " + percentageFailed);
-        }    
-        private Classification getClassification(int mark)
+            ConsoleHelper.OutputText("\n Mean mark: " + MeanMark + ", Lowest mark: " + MinMark + ", Highest mark: " + MaxMark);
+            ConsoleHelper.OutputText("\n Grade Profile based on " + Students.Count + " Students. \n First Class Percentage: " + PercentageFirstClass +
+                                     "\n Upper Class Percentage: " + PercentageUpperSecondClass +
+                                     "\n Lower Class Percentage: " + PercentageLowerSecondClass +
+                                     "\n Third Class Percentage: " + PercentageThirdClass +
+                                     "\n Failed Percentage: " + PercentageFailed);
+        }  
+        
+        //Method uses statements to get the classification based on a mark.
+        public Classification getClassification(int mark)
         {
             if (mark < 40)
             {
@@ -64,6 +71,8 @@ namespace ConsoleAppProject.App01
             }
             return Classification.FIRST_CLASS;
         }
+
+        //Method allows student marks to be entered.
         private void enterStudentMarks()
         {
             while (true)
@@ -72,26 +81,27 @@ namespace ConsoleAppProject.App01
                 int mark = ConsoleHelper.getMark(-1,100);
                 if (mark == -1)
                     break;
-           
-                Classification grade = getClassification(mark);
-                students.Add(new Student() { studentID = nextStudentID, mark = mark, classification = grade });
-                nextStudentID += 1;
+
+                addStudent(mark);
             }
         }
-        private void calculateStats()
+        //Method calculates total marks, minimum mark, maximum mark and mean mark.
+        public void calculateStats()
         {
             int totalMarks = 0;
-            minMark = 100;
-            maxMark = 0;
-            foreach (Student aStudent in students)
+            MinMark = 100;
+            MaxMark = 0;
+            foreach (Student aStudent in Students)
             {
                 totalMarks += aStudent.mark;
-                if (aStudent.mark < minMark) { minMark = aStudent.mark; }
-                if (aStudent.mark > maxMark) { maxMark = aStudent.mark; }
+                if (aStudent.mark < MinMark) { MinMark = aStudent.mark; }
+                if (aStudent.mark > MaxMark) { MaxMark = aStudent.mark; }
             }
-            meanMark = totalMarks / students.Count;
+            MeanMark = totalMarks / Students.Count;
         }
-        private void calculateGradeProfile()
+
+        //Method shows the percentages of students in different classification.
+        public void calculateGradeProfile()
         {
             int numFailed = 0;
             int numThirdClass = 0;
@@ -99,7 +109,7 @@ namespace ConsoleAppProject.App01
             int numUpperSecondClass = 0;
             int numFirstClass = 0;
 
-            foreach (Student aStudent in students)
+            foreach (Student aStudent in Students)
             {
                 if (aStudent.classification == Classification.FAILED) { numFailed++; }
                 if (aStudent.classification == Classification.THIRD_CLASS) { numThirdClass++; }
@@ -107,12 +117,20 @@ namespace ConsoleAppProject.App01
                 if (aStudent.classification == Classification.UPPER_SECOND_CLASS) { numUpperSecondClass++; }
                 if (aStudent.classification == Classification.FIRST_CLASS) { numFirstClass++; }
             }
-            percentageFailed = (numFailed * 100) / students.Count;
-            percentageThirdClass = (numThirdClass * 100) / students.Count;
-            percentageLowerSecondClass = (numLowerSecondClass * 100) / students.Count;
-            percentageUpperSecondClass = (numUpperSecondClass * 100) / students.Count;
-            percentageFirstClass = (numFirstClass * 100) / students.Count;
+            PercentageFailed = (numFailed * 100) / Students.Count;
+            PercentageThirdClass = (numThirdClass * 100) / Students.Count;
+            PercentageLowerSecondClass = (numLowerSecondClass * 100) / Students.Count;
+            PercentageUpperSecondClass = (numUpperSecondClass * 100) / Students.Count;
+            PercentageFirstClass = (numFirstClass * 100) / Students.Count;
 
+        }
+
+        //Method allows students to be added to the list.
+        public void addStudent(int mark)
+        {
+            Classification grade = getClassification(mark);
+            Students.Add(new Student() { studentID = nextStudentID, mark = mark, classification = grade });
+            nextStudentID += 1;
         }
     }
 

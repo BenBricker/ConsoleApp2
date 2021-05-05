@@ -3,8 +3,10 @@ using System;
 
 namespace ConsoleApp2
 {
+    //Main program for a selection of applications. 
     public static class Program
     {
+        //Method shows the selection of applications and allows people to choose what application to use.
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -18,7 +20,7 @@ namespace ConsoleApp2
             while (true)
             {
                 Console.WriteLine("Select a program:");
-                Console.WriteLine("1. istance Converter");
+                Console.WriteLine("1. Distance Converter");
                 Console.WriteLine("2. BMI Calculator");
                 Console.WriteLine("3. Student Grades");
                 Console.WriteLine("0. Quit");

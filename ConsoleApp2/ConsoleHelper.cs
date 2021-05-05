@@ -4,8 +4,11 @@
 
 namespace ConsoleAppProject.App01
 {
+    //The class provides a set of methods that interact with the console.
+    //The class provides validation for information read from the console.
     public static class ConsoleHelper
     {
+        //Method displays a list of distance units.
         public static void DisplayChoices()
         {
             // initialise instance variables
@@ -17,17 +20,15 @@ namespace ConsoleAppProject.App01
 
         }
 
+        //Method allows 
         public static DistanceUnits SelectChoice()
         {
-            // put your code here
-            DistanceUnits unit;
             string value = Console.ReadLine();
             while (true)
             {
                 try 
                 {
                     int choice = Convert.ToInt32(value);
-                    unit = DistanceUnits.NOUNIT;
                     if (choice == 1)
                     {
                         return DistanceUnits.FEET;
@@ -54,24 +55,27 @@ namespace ConsoleAppProject.App01
 
 
             }
-            //Console.WriteLine("You have selected " + unit);
-           // return unit;
         }
+
+        //Method outputs a title.
         public static void OutputTitle()
         {
             Console.WriteLine("Distance Converter (miles to feet) by Ben Bricker");
         }
 
+        //Method allows someone to choose a unit to convert.
         public static void OutputHeadingFrom()
         {
             Console.WriteLine("Select distance unit to convert from");
         }
 
+        //Method allows someone to choose a unit to convert to.
         public static void OutputHeadingTo()
         {
             Console.WriteLine("Select distance unit to convert to");
         }
 
+        //Method allows the result to be output.
         public static void OutputResult(double distF, DistanceUnits unitF,
                                         double distT, DistanceUnits unitT)
         {
@@ -81,6 +85,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine(" " + unitT);
         }
 
+        //Method uses try-catch to get the distance.
         public static double getDistance(DistanceUnits unit)
         {
             Console.WriteLine("Enter distance in " + unit);
@@ -103,6 +108,7 @@ namespace ConsoleAppProject.App01
 
         }
 
+        //Method usses a while loop and try-catch to select BMI choices.
         public static BMIUnits SelectBMIChoice()
         {
             // put your code here
@@ -134,10 +140,14 @@ namespace ConsoleAppProject.App01
                 }
             }
         }
+
+        //Method outputs text.
         public static void OutputText(string text)
         {
             Console.WriteLine(text);
         }
+
+        //Method uses a while loop and try-catch to get height.
         public static int getHeightFeet()
         {
             Console.WriteLine("Enter your height in feet > ");
@@ -164,6 +174,8 @@ namespace ConsoleAppProject.App01
                 }
             }    
         }
+
+        //Method uses a while loop and try-catch to get height.
         public static int getHeightInches()
         {
             Console.WriteLine("Enter your height in inches > ");
@@ -185,11 +197,13 @@ namespace ConsoleAppProject.App01
                 }
                 catch
                 {
-                    Console.WriteLine("Error, the feet must be entered as an integer");
+                    Console.WriteLine("Error, the inches must be entered as an integer");
                     value = Console.ReadLine();
                 }
             }    
         }
+
+        //Method uses a while loop and try-catch to get height.
         public static double getHeightMetres()
         {
             Console.WriteLine("Enter your height in metres > ");
@@ -216,6 +230,8 @@ namespace ConsoleAppProject.App01
                 }
             }          
         }
+
+        //Method uses a while loop and try-catch to get weight.
         public static int getWeightStones()
         {
             Console.WriteLine("Enter your weight in stones > ");
@@ -242,6 +258,8 @@ namespace ConsoleAppProject.App01
                 }
             }
         }
+
+        //Method uses a while loop and try-catch to get weight.
         public static double getWeightPounds()
         {
             Console.WriteLine("Enter your weight in pounds > ");
@@ -270,6 +288,8 @@ namespace ConsoleAppProject.App01
             
             
         }
+
+        //Method uses a while loop and try-catch to get weight.
         public static double getWeightKg()
         {
             Console.WriteLine("Enter your weight in Kg > ");
@@ -296,6 +316,8 @@ namespace ConsoleAppProject.App01
                 }
             }        
         }
+
+        //Method uses a while loop and try-catch to get a mark.
         public static int getMark(int minMark, int maxMark)
         {
             string value = Console.ReadLine();

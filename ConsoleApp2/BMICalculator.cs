@@ -3,11 +3,13 @@
 
 namespace ConsoleAppProject.App01
 {
+    //Enum contains different units.
     public enum BMIUnits
     {
         METRIC, IMPERIAL, NOUNIT
     }
 
+    //Class calculates BMI based on height and weight in imperial and metric units.
     public class BMICalculator
     {
         private double BMI;
@@ -54,6 +56,8 @@ namespace ConsoleAppProject.App01
                 weightStatus();
             }  
         }
+
+        //Method uses statements to show what someones' BMI and status is. 
         private void weightStatus()
         {
             string status;
