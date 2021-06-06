@@ -1,29 +1,33 @@
 ﻿using System;
 
-
-
 namespace ConsoleAppProject.App01
 {
-    //The class provides a set of methods that interact with the console.
-    //The class provides validation for information read from the console.
+    ///<summary>
+    ///  The class provides a set of methods that interact with the console.
+    ///  The class provides validation for information read from the console.
+    ///</summary>
     public static class ConsoleHelper
     {
-        //Method displays a list of distance units.
+        ///<summary>
+        /// Method displays a list of distance units.
+        ///</summary>
         public static void DisplayChoices()
         {
+            ///<summary>
+            /// Initialises instance variables.
+            ///</summary>
             // initialise instance variables
             Console.WriteLine("1. Feet" + ".\n" +
                                 "2. Metres" + ".\n" +
                                 "3. Miles");
 
             Console.WriteLine("Please enter your choice");
-
         }
 
-        //Method allows 
         public static DistanceUnits SelectChoice()
         {
             string value = Console.ReadLine();
+            
             while (true)
             {
                 try 
@@ -52,30 +56,36 @@ namespace ConsoleAppProject.App01
                     Console.WriteLine("Error occurred, try again");
                     value = Console.ReadLine();
                 }
-
-
             }
         }
 
-        //Method outputs a title.
+        ///<summary>
+        ///  Method outputs a title.
+        ///</summary> 
         public static void OutputTitle()
         {
             Console.WriteLine("Distance Converter (miles to feet) by Ben Bricker");
         }
 
-        //Method allows someone to choose a unit to convert.
+        ///<summary>
+        ///  Method allows someone to choose a unit to convert.
+        ///</summary> 
         public static void OutputHeadingFrom()
         {
             Console.WriteLine("Select distance unit to convert from");
         }
 
-        //Method allows someone to choose a unit to convert to.
+        ///<summary>
+        ///  Method allows someone to choose a unit to convert to.
+        ///</summary> 
         public static void OutputHeadingTo()
         {
             Console.WriteLine("Select distance unit to convert to");
         }
 
-        //Method allows the result to be output.
+        ///<summary>
+        ///  Method allows the result to be output.
+        ///</summary> 
         public static void OutputResult(double distF, DistanceUnits unitF,
                                         double distT, DistanceUnits unitT)
         {
@@ -85,10 +95,13 @@ namespace ConsoleAppProject.App01
             Console.WriteLine(" " + unitT);
         }
 
-        //Method uses try-catch to get the distance.
+        ///<summary>
+        ///  Method uses try-catch to get the distance.
+        ///</summary> 
         public static double getDistance(DistanceUnits unit)
         {
             Console.WriteLine("Enter distance in " + unit);
+           
             string value = Console.ReadLine();
             while (true)
             {
@@ -108,10 +121,11 @@ namespace ConsoleAppProject.App01
 
         }
 
-        //Method usses a while loop and try-catch to select BMI choices.
+        ///<summary>
+        ///  Method usses a while loop and try-catch to select BMI choices.
+        ///</summary> 
         public static BMIUnits SelectBMIChoice()
         {
-            // put your code here
             string value = Console.ReadLine();
             
             while (true)
@@ -141,13 +155,25 @@ namespace ConsoleAppProject.App01
             }
         }
 
-        //Method outputs text.
+        ///<summary>
+        ///  Method outputs text
+        ///</summary> 
         public static void OutputText(string text)
         {
             Console.WriteLine(text);
         }
 
-        //Method uses a while loop and try-catch to get height.
+        ///<summary>
+        ///  Method inputs text
+        ///</summary> 
+        public static string InputText()
+        {
+            return Console.ReadLine();
+        }
+
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get height.
+        ///</summary> 
         public static int getHeightFeet()
         {
             Console.WriteLine("Enter your height in feet > ");
@@ -175,7 +201,9 @@ namespace ConsoleAppProject.App01
             }    
         }
 
-        //Method uses a while loop and try-catch to get height.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get height.
+        ///</summary> 
         public static int getHeightInches()
         {
             Console.WriteLine("Enter your height in inches > ");
@@ -203,7 +231,9 @@ namespace ConsoleAppProject.App01
             }    
         }
 
-        //Method uses a while loop and try-catch to get height.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get height.
+        ///</summary> 
         public static double getHeightMetres()
         {
             Console.WriteLine("Enter your height in metres > ");
@@ -231,7 +261,9 @@ namespace ConsoleAppProject.App01
             }          
         }
 
-        //Method uses a while loop and try-catch to get weight.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get weight.
+        ///</summary> 
         public static int getWeightStones()
         {
             Console.WriteLine("Enter your weight in stones > ");
@@ -259,7 +291,9 @@ namespace ConsoleAppProject.App01
             }
         }
 
-        //Method uses a while loop and try-catch to get weight.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get weight.
+        ///</summary> 
         public static double getWeightPounds()
         {
             Console.WriteLine("Enter your weight in pounds > ");
@@ -289,7 +323,9 @@ namespace ConsoleAppProject.App01
             
         }
 
-        //Method uses a while loop and try-catch to get weight.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get weight.
+        ///</summary> 
         public static double getWeightKg()
         {
             Console.WriteLine("Enter your weight in Kg > ");
@@ -317,7 +353,9 @@ namespace ConsoleAppProject.App01
             }        
         }
 
-        //Method uses a while loop and try-catch to get a mark.
+        ///<summary>
+        ///  Method uses a while loop and try-catch to get a mark.
+        ///</summary> 
         public static int getMark(int minMark, int maxMark)
         {
             string value = Console.ReadLine();

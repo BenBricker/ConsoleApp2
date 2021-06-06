@@ -2,13 +2,17 @@
 
 namespace ConsoleAppProject.App01
 {
-    //Enum contains different units.
+    ///<summary>
+    /// Enum contains different units.
+    ///</summary>
     public enum DistanceUnits
     {
         NOUNIT, FEET, METRES, MILES
     }
 
-    //Class converts distances between different units.
+    ///<summary>
+    /// Class converts distances between different units.
+    ///</summary>
     public class DistanceConverter
     {
         public const double FEET_IN_METRES = 3.28084;
@@ -20,7 +24,9 @@ namespace ConsoleAppProject.App01
         public double ToDistance;
         public DistanceUnits ToUnit;
 
-        //Method calls methods to run the distance converter.
+        ///<summary>
+        /// Method calls methods to run the distance converter.
+        ///</summary>
         public void run()
         {
             ConsoleHelper.OutputTitle();
@@ -39,8 +45,10 @@ namespace ConsoleAppProject.App01
 
             ConsoleHelper.OutputResult(FromDistance, FromUnit, ToDistance, ToUnit);
         }
-        
-        //Method uses statements to calculate distances.
+
+        ///<summary>
+        /// Method uses statements to calculate distances.
+        ///</summary>
         public void CalculateDistance()
         {
             ToDistance = FromDistance;
@@ -70,7 +78,9 @@ namespace ConsoleAppProject.App01
             }
         }
 
-        //Method outputs heading using print statements.
+        ///<summary>
+        /// Method outputs heading using print statements.
+        ///</summary>
         private void OutputHeading()
         {
             Console.WriteLine("");

@@ -2,18 +2,21 @@
 
 namespace ConsoleAppProject.App01
 {
-    //Class contains and displays the details of a student.
+    ///<summary>
+    ///  Class contains and displays the details of a student.
+    ///</summary> 
     class Student
     {
         public int studentID { get; set; }
         public Classification classification { get; set; }
         public int mark { get; set; }
 
-        //Method shows student information.
+        ///<summary>
+        ///  Method shows student information.
+        ///</summary> 
         public void display()
         {
             ConsoleHelper.OutputText("Student ID: " + studentID + " Mark: " + mark + " Grade: " + classification);
         }
     }
-    
 } 

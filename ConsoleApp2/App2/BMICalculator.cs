@@ -1,35 +1,38 @@
 ﻿using System;
 
-
 namespace ConsoleAppProject.App01
 {
-    //Enum contains different units.
+    ///<summary>
+    /// Enum contains different units.
+    ///</summary>
     public enum BMIUnits
     {
         METRIC, IMPERIAL, NOUNIT
     }
 
-    //Class calculates BMI based on height and weight in imperial and metric units.
+    ///<summary>
+    /// Class calculates BMI based on height and weight in imperial and metric units.
+    ///</summary>
     public class BMICalculator
     {
         private double BMI;
         public void run()
         {
-            
             ConsoleHelper.OutputText("---------------\n"+
                                      "BMI Calculator \n"+
                                      "By Ben Bricker \n"+
                                      "---------------\n");
+            
             ConsoleHelper.OutputText("1. Metric Units\n" +
                                      "2. Imperial Units");
 
-            
             BMIUnits units = ConsoleHelper.SelectBMIChoice();
 
             if (units == BMIUnits.METRIC)
             {
                double height = ConsoleHelper.getHeightMetres();
                double weight = ConsoleHelper.getWeightKg();
+              
                BMI = weight / (height * height);
             }
 
@@ -39,6 +42,7 @@ namespace ConsoleAppProject.App01
                 int heightInches = ConsoleHelper.getHeightInches();
                 int weightStones = ConsoleHelper.getWeightStones();
                 double weightPounds = ConsoleHelper.getWeightPounds();
+                
                 heightInches += (heightFeet * 12);
                 weightPounds += (weightStones * 14);
                 BMI = (weightPounds * 703) / (heightInches * heightInches);
@@ -57,7 +61,9 @@ namespace ConsoleAppProject.App01
             }  
         }
 
-        //Method uses statements to show what someones' BMI and status is. 
+        ///<summary>
+        /// Method uses statements to show what someones' BMI and status is. 
+        ///</summary>
         private void weightStatus()
         {
             string status;

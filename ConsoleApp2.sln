@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{CA1F0F0B-6574-4D47-91B4-95E8E0ED92CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestConsoleApp2", "UnitTestCosoleApp2\UnitTestConsoleApp2.csproj", "{8EFE42CE-DC22-4285-999B-181CAF360305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestConsoleApp2", "UnitTestCosoleApp2\UnitTestConsoleApp2.csproj", "{8EFE42CE-DC22-4285-999B-181CAF360305}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoGameRPG", "..\Monogame\MonoGameRPG\MonoGameRPG.csproj", "{9972A91C-86A3-4A1B-A975-AEBC12E54DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8EFE42CE-DC22-4285-999B-181CAF360305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EFE42CE-DC22-4285-999B-181CAF360305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EFE42CE-DC22-4285-999B-181CAF360305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9972A91C-86A3-4A1B-A975-AEBC12E54DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9972A91C-86A3-4A1B-A975-AEBC12E54DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9972A91C-86A3-4A1B-A975-AEBC12E54DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9972A91C-86A3-4A1B-A975-AEBC12E54DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

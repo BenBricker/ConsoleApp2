@@ -15,23 +15,21 @@ namespace ConsoleApp2
     /// search or ordering functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
+    ///  Ben Bricker
     ///  version 0.1
     ///</author> 
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        private List<Post> posts { get; }
+        public const string AUTHOR = "Paul";
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            posts = new List<Post>();
         }
-
 
         ///<summary>
         /// Add a text post to the news feed.
@@ -40,7 +38,7 @@ namespace ConsoleApp2
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            messages.Add(message);
+            posts.Add(message);
         }
 
         ///<summary>
@@ -50,7 +48,7 @@ namespace ConsoleApp2
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
         }
 
         ///<summary>
@@ -59,19 +57,59 @@ namespace ConsoleApp2
         ///</summary>
         public void Display()
         {
-            // display all text posts
-            foreach (MessagePost message in messages)
+            // display all posts
+            foreach (Post post in posts)
             {
-                message.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
+        }
 
-            // display all photos
-            foreach (PhotoPost photo in photos)
+        ///<summary>
+        /// Add a comment to a post
+        ///</summary>
+        public void AddComment(int postID, string comment)
+        {
+            foreach (Post post in posts)
             {
-                photo.Display();
-                Console.WriteLine();   // empty line between posts
+                if (postID == post.postID)
+                {
+                    post.AddComment(comment);
+                }
             }
+        }
+
+        ///<summary>
+        /// Likes a post.
+        ///</summary>
+        public void LikePost(int postID)
+        {
+            foreach (Post post in posts)
+            {
+                if (postID == post.postID)
+                {
+                    post.Like();
+                }
+            }
+        }
+
+        ///<summary>
+        /// Dislikes a post.
+        ///</summary>
+        public void UnlikePost(int postID)
+        {
+            foreach (Post post in posts)
+            {
+                if (postID == post.postID)
+                {
+                    post.Unlike();
+                }
+            }
+        }
+
+        public int selectPost()
+        {
+            return; 
         }
     }
 }
